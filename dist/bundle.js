@@ -16,27 +16,17 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_one__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/one */ \"./src/modules/one.js\");\n/* harmony import */ var _modules_two__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/two */ \"./src/modules/two.js\");\n\r\n\r\n\r\n(0,_modules_one__WEBPACK_IMPORTED_MODULE_0__.oneFunc)()\r\n;(0,_modules_two__WEBPACK_IMPORTED_MODULE_1__.twoFunc)()\n\n//# sourceURL=webpack://3dproject/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/timer */ \"./src/modules/timer.js\");\n\r\n\r\n\r\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_0__.timer)('1 april 2024')\r\n\n\n//# sourceURL=webpack://3dproject/./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/modules/one.js":
-/*!****************************!*\
-  !*** ./src/modules/one.js ***!
-  \****************************/
+/***/ "./src/modules/timer.js":
+/*!******************************!*\
+  !*** ./src/modules/timer.js ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   oneFunc: () => (/* binding */ oneFunc)\n/* harmony export */ });\nconst oneFunc = () => {\r\n    console.log('one');\r\n}\n\n//# sourceURL=webpack://3dproject/./src/modules/one.js?");
-
-/***/ }),
-
-/***/ "./src/modules/two.js":
-/*!****************************!*\
-  !*** ./src/modules/two.js ***!
-  \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   twoFunc: () => (/* binding */ twoFunc)\n/* harmony export */ });\nconst twoFunc = () => {\r\n    console.log('two');\r\n}\n\n//# sourceURL=webpack://3dproject/./src/modules/two.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   timer: () => (/* binding */ timer)\n/* harmony export */ });\nconst timer = (deadline) => {\r\nconst timerHours = document.getElementById('timer-hours')\r\nconst timerMinutes = document.getElementById('timer-minutes')\r\nconst timerSeconds = document.getElementById('timer-seconds')\r\nconst timerDay = document.getElementById('timer-day')\r\n\r\n\r\nconst getTime = () => {\r\n    let dateStop = new Date(deadline).getTime()\r\n    let dateNow = new Date().getTime()\r\n    let timeRemaining = (dateStop - dateNow) / 1000\r\n\r\n    let days = Math.floor(timeRemaining / 60 / 60 / 24)\r\n    let hours = Math.floor((timeRemaining / 60 / 60) % 24)\r\n    let minutes = Math.floor((timeRemaining / 60) % 60)\r\n    let seconds = Math.floor(timeRemaining % 60)\r\n\r\n    return {timeRemaining, days, hours, minutes, seconds}\r\n}\r\n\r\nconst updateClock = () => {\r\n    const {timeRemaining, days, hours, minutes, seconds} = getTime()\r\n\r\n    timerHours.textContent = hours < 10 ? `0${hours}` : hours\r\n    timerMinutes.textContent = minutes < 10 ? `0${minutes}` : minutes\r\n    timerSeconds.textContent = seconds < 10 ? `0${seconds}` : seconds\r\n    timerDay.textContent = days < 10 ? `0${days}` : days\r\n\r\n    if(timeRemaining > 0){\r\n        setInterval(updateClock, 1000)\r\n    }\r\n}\r\n\r\nupdateClock()\r\n}\r\n\n\n//# sourceURL=webpack://3dproject/./src/modules/timer.js?");
 
 /***/ })
 
