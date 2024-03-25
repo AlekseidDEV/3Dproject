@@ -4,6 +4,7 @@ const timerMinutes = document.getElementById('timer-minutes')
 const timerSeconds = document.getElementById('timer-seconds')
 const timerDay = document.getElementById('timer-day')
 
+let interval
 
 const getTime = () => {
     let dateStop = new Date(deadline).getTime()
@@ -26,10 +27,10 @@ const updateClock = () => {
     timerSeconds.textContent = seconds < 10 ? `0${seconds}` : seconds
     timerDay.textContent = days < 10 ? `0${days}` : days
 
-    if(timeRemaining > 0){
-        setInterval(updateClock, 1000)
+    if(timeRemaining < 0){
+        clearInterval(interval)
     }
 }
 
-updateClock()
+interval = setInterval(updateClock, 1000)
 }
