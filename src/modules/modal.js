@@ -1,9 +1,9 @@
 export const modalWind = () => {
-    const btnPopup = document.querySelector('.popup-btn')
+    const btnPopup = document.querySelectorAll('.popup-btn')
     const popup = document.querySelector('.popup')
 
     const openModal = (e) => {
-        if(e.target === btnPopup){
+        if(e.target.localName === 'button'){
             popup.style.display = 'block'
         } else if(e.target.className === 'popup-close'){
             popup.style.display = 'none'
@@ -12,6 +12,8 @@ export const modalWind = () => {
         }
     }
 
-    btnPopup.addEventListener('click', openModal)
+    btnPopup.forEach((btn) => {
+        btn.addEventListener('click', openModal)
+    })
     popup.addEventListener('click', openModal)
 }
