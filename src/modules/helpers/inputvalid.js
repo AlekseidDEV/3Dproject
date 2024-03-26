@@ -20,10 +20,17 @@ export const inputValid = (selector) => {
             }
         })
 
-        // input.addEventListener('blur', (e) => {
-        //     if(input.getAttribute('type') === 'text'){
-        //         console.log(e.target);
-        //     }
-        // })
+        input.addEventListener('blur', (e) => {
+            if(input.getAttribute('type') === 'text'){
+                e.target.value = e.target.value.trim()
+                .replace(/\s+/g, ' ')
+                .replace(/[-_]*/, '')
+                .replace(/( |^)[а-я]/g, (x) => {
+                    return x.toUpperCase();
+                });
+            } else {
+                e.target.value = e.target.value.replace(/[-_]*/, '')
+            }
+        })
     })
 }
