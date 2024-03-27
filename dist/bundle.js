@@ -20,6 +20,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 
 /***/ }),
 
+/***/ "./src/modules/helpers/animate.js":
+/*!****************************************!*\
+  !*** ./src/modules/helpers/animate.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   animate: () => (/* binding */ animate)\n/* harmony export */ });\nconst animate = ({timing, draw, duration}) => {\r\n    let start = performance.now();\r\n    \r\n  requestAnimationFrame(function animate(time) {\r\n    \r\n    let timeFraction = (time - start) / duration;\r\n    if (timeFraction > 1) timeFraction = 1;\r\n\r\n    let progress = timing(timeFraction);\r\n\r\n    draw(progress);\r\n\r\n    if (timeFraction < 1) {\r\n      requestAnimationFrame(animate);\r\n    }\r\n\r\n  });\r\n}\n\n//# sourceURL=webpack://3dproject/./src/modules/helpers/animate.js?");
+
+/***/ }),
+
 /***/ "./src/modules/menu.js":
 /*!*****************************!*\
   !*** ./src/modules/menu.js ***!
@@ -36,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   modalWind: () => (/* binding */ modalWind)\n/* harmony export */ });\nconst modalWind = () => {\r\n    const btnPopup = document.querySelectorAll('.popup-btn')\r\n    const popup = document.querySelector('.popup')\r\n\r\n    const openModal = (e) => {\r\n        if(e.target.localName === 'button'){\r\n            popup.style.display = 'block'\r\n        } else if(e.target.className === 'popup-close'){\r\n            popup.style.display = 'none'\r\n        } else if(e.target === popup){\r\n            popup.style.display = 'none'\r\n        }\r\n    }\r\n\r\n    btnPopup.forEach((btn) => {\r\n        btn.addEventListener('click', openModal)\r\n    })\r\n    popup.addEventListener('click', openModal)\r\n}\n\n//# sourceURL=webpack://3dproject/./src/modules/modal.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   modalWind: () => (/* binding */ modalWind)\n/* harmony export */ });\n/* harmony import */ var _helpers_animate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers/animate */ \"./src/modules/helpers/animate.js\");\n\r\n\r\nconst modalWind = () => {\r\n    const btnPopup = document.querySelectorAll('.popup-btn')\r\n    const popup = document.querySelector('.popup')\r\n\r\n    const startAnimate = () => {\r\n        if(window.innerWidth < 768){\r\n            popup.style.transform = 'translate(0px, 0px)'\r\n        } else{\r\n            (0,_helpers_animate__WEBPACK_IMPORTED_MODULE_0__.animate)({\r\n                duration: 300, \r\n                timing(timeFraction){\r\n                    return timeFraction\r\n                },\r\n                draw(progress){\r\n                  popup.style.transform = `translate(${-(100 + (-100 *  progress))}%)`\r\n                } \r\n              })\r\n        }\r\n    }\r\n\r\n    const openModal = (e) => {\r\n        if(e.target.localName === 'button'){\r\n            popup.style.display = 'block'\r\n            startAnimate()\r\n        } else if(e.target.className === 'popup-close'){\r\n            popup.style.display = 'none'\r\n        } else if(e.target === popup){\r\n            popup.style.display = 'none'\r\n        }\r\n    }\r\n\r\n    btnPopup.forEach((btn) => {\r\n        btn.addEventListener('click', openModal)\r\n    })\r\n    popup.addEventListener('click', openModal)\r\n}\n\n//# sourceURL=webpack://3dproject/./src/modules/modal.js?");
 
 /***/ })
 
