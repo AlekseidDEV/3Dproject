@@ -29,6 +29,10 @@ const updateClock = () => {
 
     if(timeRemaining < 0){
         clearInterval(interval)
+        timerHours.textContent = '00'
+        timerMinutes.textContent = '00'
+        timerSeconds.textContent = '00'
+        timerDay.textContent = '00'
     }
 }
 

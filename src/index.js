@@ -1,4 +1,4 @@
 import { timer } from "./modules/timer";
 
 
-timer('1 april 2024')
+timer('26 march 2024')
