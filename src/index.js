@@ -1,4 +1,8 @@
 import { timer } from "./modules/timer";
-
+import { modalMenu } from "./modules/menu";
+import { modalWind } from "./modules/modal";
 
 timer('1 april 2024')
+
+modalMenu()
+modalWind()
