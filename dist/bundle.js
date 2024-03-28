@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_calc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/calc */ \"./src/modules/calc.js\");\n/* harmony import */ var _modules_helpers_inputvalid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/helpers/inputvalid */ \"./src/modules/helpers/inputvalid.js\");\n\r\n\r\n\r\n\r\n(0,_modules_calc__WEBPACK_IMPORTED_MODULE_0__.calc)()\r\n\r\n;(0,_modules_helpers_inputvalid__WEBPACK_IMPORTED_MODULE_1__.inputValid)(\"#form1\")\r\n;(0,_modules_helpers_inputvalid__WEBPACK_IMPORTED_MODULE_1__.inputValid)(\"#form2\")\n\n//# sourceURL=webpack://3dproject/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_calc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/calc */ \"./src/modules/calc.js\");\n/* harmony import */ var _modules_helpers_inputvalid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/helpers/inputvalid */ \"./src/modules/helpers/inputvalid.js\");\n\r\n\r\n\r\n\r\n(0,_modules_calc__WEBPACK_IMPORTED_MODULE_0__.calc)()\r\n\r\n;(0,_modules_helpers_inputvalid__WEBPACK_IMPORTED_MODULE_1__.inputValid)(\"#form1\")\r\n;(0,_modules_helpers_inputvalid__WEBPACK_IMPORTED_MODULE_1__.inputValid)(\"#form2\")\r\n;(0,_modules_helpers_inputvalid__WEBPACK_IMPORTED_MODULE_1__.inputValid)(\"#form3\")\n\n//# sourceURL=webpack://3dproject/./src/index.js?");
 
 /***/ }),
 

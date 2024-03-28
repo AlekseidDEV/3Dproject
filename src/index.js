@@ -6,3 +6,4 @@ calc()
 
 inputValid("#form1")
 inputValid("#form2")
+inputValid("#form3")
