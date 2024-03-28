@@ -6,7 +6,7 @@ export const modalWind = () => {
 
     const startAnimate = () => {
         if(window.innerWidth < 768){
-            popup.style.transform = 'translate(0px, 0px)'
+            // popup.style.transform = 'translate(0px, 0px)'
         } else{
             animate({
                 duration: 300, 
@@ -21,11 +21,11 @@ export const modalWind = () => {
     }
 
     const openModal = (e) => {
-        if(e.target.localName === 'button'){
+        if(e.target.matches('.popup-btn')){
             popup.style.display = 'block'
             startAnimate()
         } else if(e.target.className === 'popup-close'){
-            popup.style.display = 'none'
+            popup.style.display = 'none' 
         } else if(e.target === popup){
             popup.style.display = 'none'
         }
