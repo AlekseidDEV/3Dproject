@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/timer */ \"./src/modules/timer.js\");\n/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ \"./src/modules/menu.js\");\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modal */ \"./src/modules/modal.js\");\n/* harmony import */ var _modules_scrolllink__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/scrolllink */ \"./src/modules/scrolllink.js\");\n\r\n\r\n\r\n\r\n\r\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_0__.timer)('1 april 2024')\r\n\r\n;(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__.modalMenu)()\r\n;(0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__.modalWind)()\r\n;(0,_modules_scrolllink__WEBPACK_IMPORTED_MODULE_3__.scrollLink)()\r\n// dev\r\n\n\n//# sourceURL=webpack://3dproject/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/timer */ \"./src/modules/timer.js\");\n/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ \"./src/modules/menu.js\");\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modal */ \"./src/modules/modal.js\");\n/* harmony import */ var _modules_scrolllink__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/scrolllink */ \"./src/modules/scrolllink.js\");\n/* harmony import */ var _modules_tab__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/tab */ \"./src/modules/tab.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_0__.timer)('1 april 2024')\r\n\r\n;(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__.modalMenu)()\r\n;(0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__.modalWind)()\r\n;(0,_modules_scrolllink__WEBPACK_IMPORTED_MODULE_3__.scrollLink)()\r\n;(0,_modules_tab__WEBPACK_IMPORTED_MODULE_4__.tabFunc)()\r\n\n\n//# sourceURL=webpack://3dproject/./src/index.js?");
 
 /***/ }),
 
@@ -67,6 +67,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   smoothScroll: () => (/* binding */ smoothScroll)\n/* harmony export */ });\nconst smoothScroll = (id) => {\r\n    const blockScroll = document.querySelector(id)\r\n    \r\n    blockScroll.scrollIntoView({\r\n        behavior: \"smooth\",\r\n        block: \"start\",\r\n    })\r\n}\n\n//# sourceURL=webpack://3dproject/./src/modules/smoothscroll.js?");
+
+/***/ }),
+
+/***/ "./src/modules/tab.js":
+/*!****************************!*\
+  !*** ./src/modules/tab.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   tabFunc: () => (/* binding */ tabFunc)\n/* harmony export */ });\nconst tabFunc = () => {\r\n    const tabPanel = document.querySelector('.service-header')\r\n    const tabsBtn = document.querySelectorAll('.service-header-tab')\r\n    const tabs = document.querySelectorAll('.service-tab')\r\n    \r\n    const changeTab = (e) => {\r\n        if(e.target.closest('.service-header-tab')){\r\n            tabsBtn.forEach((btn, index) => {\r\n                if(btn === e.target.closest('.service-header-tab')){\r\n                    btn.classList.add('active')\r\n                    tabs[index].classList.remove('d-none')\r\n                } else{\r\n                    btn.classList.remove('active')\r\n                    tabs[index].classList.add('d-none')\r\n                }\r\n            })\r\n        }\r\n    }\r\n\r\n    tabPanel.addEventListener('click', changeTab)\r\n}\n\n//# sourceURL=webpack://3dproject/./src/modules/tab.js?");
 
 /***/ }),
 
