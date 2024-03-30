@@ -1,6 +1,6 @@
-export const sliderFunc = ([sliderClass, slidesClass, slideActive, dotClass, dotActive, prevLink, nextLink, time]) => {
-    const slider = document.querySelector(sliderClass)
-    const slides = document.querySelectorAll(slidesClass)
+export const sliderFunc = (time) => {
+    const slider = document.querySelector('.portfolio-content')
+    const slides = document.querySelectorAll('.portfolio-item')
 
     let count = 0
     let interval
@@ -17,11 +17,11 @@ export const sliderFunc = ([sliderClass, slidesClass, slideActive, dotClass, dot
 
         arrDots = dotWrapper.querySelectorAll('li')
 
-        arrDots.forEach((dot, index) => {
+        arrDots.forEach((dotLi, index) => {
             if (index === 0){
-                dot.classList.add(dotClass, dotActive)
+                dotLi.classList.add("dot", 'dot-active')
             } else {
-                dot.classList.add(dotClass)
+                dotLi.classList.add('dot')
             }
         })
     }
@@ -37,27 +37,27 @@ export const sliderFunc = ([sliderClass, slidesClass, slideActive, dotClass, dot
     }
 
     const autoSlider = () => {
-        prev(arrDots, dotActive, count)
-        prev(slides, slideActive, count)
+        prev(arrDots, "dot-active", count)
+        prev(slides, 'portfolio-item-active', count)
         count++
 
         if (count >= slides.length) {
             count = 0
         }
 
-        next(arrDots, dotActive, count)
-        next(slides, slideActive, count)
+        next(arrDots, "dot-active", count)
+        next(slides, 'portfolio-item-active', count)
     }
 
     const changeSlider = (e) => {
         e.preventDefault()
 
-        prev(arrDots, dotActive, count)
-        prev(slides, slideActive, count)
+        prev(arrDots, 'dot-active', count)
+        prev(slides, 'portfolio-item-active', count)
 
-        if (e.target.matches(prevLink)) {
+        if (e.target.matches('.prev')) {
             count--
-        } else if (e.target.matches(nextLink)) {
+        } else if (e.target.matches('.next')) {
             count++
         } else if (e.target.matches('.dot')) {
             arrDots.forEach((dot, index) => {
@@ -75,18 +75,18 @@ export const sliderFunc = ([sliderClass, slidesClass, slideActive, dotClass, dot
             count = 0
         }
 
-        next(arrDots, dotActive, count)
-        next(slides, slideActive, count)
+        next(arrDots, "dot-active", count)
+        next(slides, 'portfolio-item-active', count)
     }
 
     const startSlider = () => {
-        if (slider && slides) {
-            interval = setInterval(autoSlider, time)
-        } else {
-            return
-        }
+        interval = setInterval(autoSlider, time)
+        // if (slider && slides) {
+        //     interval = setInterval(autoSlider, time)
+        // } else {
+        //     return
+        // }
     }
-
     startSlider()
     addDots()
 
