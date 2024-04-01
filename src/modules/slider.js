@@ -1,4 +1,4 @@
-export const sliderFunc = ([sliderClass, slidesClass, slideActive, dotClass, dotActive, prevLink, nextLink, time]) => {
+export const sliderFunc = ([sliderClass, slidesClass, slideActive = 'portfolio-item-active', dotClass, dotActive = '', prevLink, nextLink, time]) => {
     const slider = document.querySelector(sliderClass)
     const slides = document.querySelectorAll(slidesClass)
 
@@ -18,7 +18,7 @@ export const sliderFunc = ([sliderClass, slidesClass, slideActive, dotClass, dot
         arrDots = dotWrapper.querySelectorAll('li')
 
         arrDots.forEach((dot, index) => {
-            if (index === 0){
+            if (index === 0) {
                 dot.classList.add(dotClass, dotActive)
             } else {
                 dot.classList.add(dotClass)
@@ -28,11 +28,9 @@ export const sliderFunc = ([sliderClass, slidesClass, slideActive, dotClass, dot
 
     const prev = (arrElem, activeClass, index) => {
         arrElem[index].classList.remove(activeClass)
-        arrElem[index].classList.remove(activeClass)
     }
 
     const next = (arrElem, activeClass, index) => {
-        arrElem[index].classList.add(activeClass)
         arrElem[index].classList.add(activeClass)
     }
 
@@ -81,24 +79,25 @@ export const sliderFunc = ([sliderClass, slidesClass, slideActive, dotClass, dot
 
     const startSlider = () => {
         if (slider && slides) {
+            addDots()
             interval = setInterval(autoSlider, time)
+
+            slider.addEventListener('click', changeSlider)
+            slider.addEventListener('mouseover', (e) => {
+                if (e.target.matches('.dot') || e.target.matches('.portfolio-btn')) {
+                    clearInterval(interval)
+                }
+            })
+            slider.addEventListener('mouseleave', (e) => {
+                if (e.target.matches('.dot') || e.target.matches('.portfolio-btn')) {
+                    interval = setInterval(autoSlider, time)
+                }
+            }, true)
+
         } else {
-            return
+            throw new Error('Передан не верный селектор в модуль слайдера, исправь пожалуста :)')
         }
     }
 
     startSlider()
-    addDots()
-
-    slider.addEventListener('click', changeSlider)
-    slider.addEventListener('mouseover', (e) => {
-        if (e.target.matches('.dot') || e.target.matches('.portfolio-btn')) {
-            clearInterval(interval)
-        }
-    })
-    slider.addEventListener('mouseleave', (e) => {
-        if (e.target.matches('.dot') || e.target.matches('.portfolio-btn')) {
-            interval = setInterval(autoSlider, time)
-        }
-    }, true)
 }
