@@ -1,3 +1,5 @@
+import { animate } from "./helpers/animate"
+
 export const calcFunc = (price = 100) => {
     const calcBlock = document.querySelector('.calc-block')
     const calcSelect = calcBlock.querySelector('.calc-type')
@@ -31,7 +33,17 @@ export const calcFunc = (price = 100) => {
             totalValue = 0
         }
 
-        spanTotal.textContent = totalValue
+        animate({
+            duration: 400, 
+            timing(timeFraction){
+                return timeFraction
+            },
+            draw(progress){
+                if(typeCalcValue && typeSquareValue){
+                    spanTotal.textContent = Math.floor(totalValue * progress)
+                }
+            } 
+          })
     }
 
     calcBlock.addEventListener('input', (e) => {
