@@ -2,6 +2,8 @@ export const inputValid = (selector) => {
     const blockInputs = document.querySelector(selector)
     const inputs = blockInputs.querySelectorAll('input')
 
+    const calcBlock = document.querySelector('.calc-block')
+
     let textRegexp = /[^а-яА-Я\s-]+/g
     let emailRegexp = /[^a-zA-Z0-9@\-_.!~*']+/g
     let telRegexp = /[^\d()\-+]/g
@@ -33,4 +35,10 @@ export const inputValid = (selector) => {
             }
         })
     })
+
+    calcBlock.addEventListener('input', (e) => {
+        if(e.target.localName === 'input'){
+             e.target.value = e.target.value.replace(/\D/g, '')
+        }
+     })
 }

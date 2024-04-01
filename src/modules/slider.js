@@ -1,4 +1,4 @@
-export const sliderFunc = ([sliderClass, slidesClass, slideActive = 'portfolio-item-active', dotClass, dotActive = '', prevLink, nextLink, time]) => {
+export const sliderFunc = ([sliderClass, slidesClass, slideActive = 'portfolio-item-active', dotClass, dotActive = 'dot-active', prevLink, nextLink, time]) => {
     const slider = document.querySelector(sliderClass)
     const slides = document.querySelectorAll(slidesClass)
 
