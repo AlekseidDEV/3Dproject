@@ -11,6 +11,8 @@ export const inputValid = (selector) => {
 
     inputs.forEach((input) => {
         input.addEventListener('input', (e) => {
+            input.removeAttribute('style')
+            
             if(input.getAttribute('type') === 'text'){
                 input.value = e.target.value.replace(textRegexp, '')
             } else if(input.getAttribute('type') === 'email'){

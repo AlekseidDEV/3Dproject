@@ -6,8 +6,9 @@ import { scrollLink } from "./modules/scrolllink";
 import { tabFunc } from "./modules/tab";
 import { sliderFunc } from "./modules/slider";
 import { calcFunc } from "./modules/calc";
+import { sendForm } from "./modules/sendform";
 
-timer('1 april 2024')
+timer('20 april 2024')
 
 inputValid("#form1")
 inputValid("#form2")
@@ -18,4 +19,7 @@ scrollLink()
 tabFunc()
 sliderFunc(['.portfolio-content', '.portfolio-item', 'portfolio-item-active', 'dot', 'dot-active', '.prev', '.next', 2000])
 calcFunc(890)
+sendForm('form1')
+sendForm('form2')
+sendForm('form3')
 
