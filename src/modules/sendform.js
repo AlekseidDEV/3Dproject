@@ -1,5 +1,6 @@
 export const sendForm = (idForm) => {
     const form = document.getElementById(idForm)
+    const preload = document.querySelector('.preloader')
 
     const sendData = (data) => {
         return fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -34,9 +35,12 @@ export const sendForm = (idForm) => {
         const formData = new FormData(e.target)
         const allInputs = e.target.querySelectorAll('input')
 
+        preload.style.display = 'flex'
+
         if (validInput(allInputs)) {
             sendData(formData)
                 .then(() => {
+                    preload.style.display = 'none'
                     allInputs.forEach((input) => {
                         input.value = ''
                     })
